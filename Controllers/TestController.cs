@@ -5,8 +5,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using System.Web.Routing;
 using Newtonsoft.Json;
+using WebAPITest.Models;
 
 namespace WebAPITest.Controllers
 {
@@ -29,7 +31,7 @@ namespace WebAPITest.Controllers
 
 		[HttpPost]
 		[Route("data")]
-		public string SaveData()
+		public string SaveData([FromBody] Dog dog)
 		{
 			string key = HttpContext.Current.Request.Params["key"];
 
